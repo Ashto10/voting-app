@@ -1,4 +1,4 @@
-Url Shortener Microservice
+Voting Website
 ==========================
 
 A full stack website that fulfills the following user stories:
@@ -19,6 +19,7 @@ More information about the challenge can be found [at FreeCodeCamp](https://www.
 1. Ability to see other's profiles
 1. Track who voted on what (for moderation purposes)
 1. Comment system
+1. Come up with an actual visual layout
 
 --------------------------
 Made by [Gustavo Guarino](https://www.gustavoguarino.com)
