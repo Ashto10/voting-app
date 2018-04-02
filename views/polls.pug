@@ -1,0 +1,57 @@
+extends layout
+
+block head
+    title Poll
+    
+block body
+  .container
+    h1= poll.name
+    p created by #[=poll.creator.creatorName]
+    p= poll.description
+  #poll(data-graph=poll.options)
+    .optionsContainer
+      each option in poll.options
+        .option
+          .optionColor
+          span.optionLabel= option.title
+          if canVote
+            a( href='/api/poll/' + poll._id + '/vote/' + option.id).btn.btn-sm.default vote
+      if loggedIn
+        form( action="/api/poll/" + poll._id + "/newVote" method="post")
+          input( type="text" name="customOption" placeholder="Type in a custom answer")
+          button.btn.btn-sm.default Submit
+      a(href="https://twitter.com/intent/tweet?text="+shareText+"&url="+url data-size="large").twitter-share-button Tweet
+    if voterCount = poll.voters.length !== 0
+      .svg-container
+    else
+      .svg-warning
+        h2 No Votes
+        p Be the first to leave your thoughts
+  if loggedIn
+    - var shareText = "Share your thoughts about " + poll.name + "!";
+    .resultsArea
+      .container
+        h2 Results
+        - var options = poll.options
+        - options.sort((a,b) => { return b.count-a.count })
+        - var guestVoters = 0, userVoters = 0;
+        - poll.voters.forEach(voter => {
+        -  if (voter.match(/^[a-fA-F0-9]{24}$/)) {
+        -    userVoters++;
+        -  } else {
+        -    guestVoters++;
+        -  }
+        - })
+        h3 Voter Breakdown
+        p Total number of votes: #[=poll.voters.length]
+        p Registered voters: #[=userVoters]
+        p Guest voters: #[=guestVoters]
+        h3 Vote Breakdown
+        each option in options
+          - var s = option.count === 1 ? '' : 's'
+          p #[=option.title]: #[=option.count] vote#[= s] 
+      
+block script
+  script(src="https://d3js.org/d3.v5.min.js")
+  script( async src="https://platform.twitter.com/widgets.js" charset="utf-8")
+  script(src="/controllers/pollController.client.js" type="text/javascript")

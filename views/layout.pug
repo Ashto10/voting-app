@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    block head
+    link(href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" rel="stylesheet" type="text/css")
+    link(href="/public/main.css" rel="stylesheet" type="text/css")
+  body
+    div.header
+      div.brand
+        img(src="https://cdn.glitch.com/854bed4f-5ebe-43f7-a85e-3e9f30063361%2Fthinking_man_light.png?1522557534257").siteLogo
+        a(href="/").siteTitle Opiner
+      div.profileContainer
+        if loggedIn
+          img(src=user.twitter.iconURL).twitterIcon
+          a(href="/profile").menuOption Profile
+          a(href="/logout").menuOption Logout
+        else
+          img(src="https://cdn.glitch.com/854bed4f-5ebe-43f7-a85e-3e9f30063361%2Fsign-in-with-twitter-gray%5B1%5D.png?1522553964899" onClick="logIntoTwitter()").twitterLogin
+    block body
+    div.footer
+    script(
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    )
+    script( src="/common/ajax-functions.js" type="text/javascript")
+    block script
