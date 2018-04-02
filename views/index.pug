@@ -1,0 +1,38 @@
+extends layout
+
+block head
+  title Opiner - Tell the world what you think!
+  
+block body
+  unless loggedIn
+    .splashImage
+      .splashText
+        h1 Because the world cares what you think
+        p Chime in and let others know what you think, or start your own poll and get the opinions of thousands of users like you 
+        a(onClick="logIntoTwitter()").btn.lg Get started
+  .latestPolls
+    h2 Latest polls
+    .container
+      each poll in pollData
+        .pollContainer
+          .pollContents
+            p.title #[=poll.name]
+            p.author by #[=poll.creator.creatorName]
+            p.description= poll.description
+          a(href="poll/" + poll._id).btn vote
+      if loggedIn
+        div.newPoll
+          a(href="/profile#newPoll").btn.btn-lg Create new poll
+  unless loggedIn
+    .guestInformation
+      .container
+        h2 How it works
+        h3 #[span Step 1:] Create a poll
+        p Create an account to start making polls. You pick the topic, and supply a list of possible answers.
+        h3 #[span Step 2:] Let others vote
+        p Anyone can vote on your poll. Guest users can pick from the list of supplied answers, and registered Opiners have the option of adding their own custom answer.
+          |  You can even share your poll on Twitter or other social media sites in order to get as many responses as possible.
+        h3 #[span Step 3:] That it!
+    
+block script
+  script( src="/controllers/userController.client.js" type="text/javascript")

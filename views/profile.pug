@@ -1,0 +1,42 @@
+extends layout
+
+block head
+  title Profile
+
+block body
+  .container
+    h2 #[=user.twitter.displayName]'s Profile
+    - console.log(user);
+    h2 Your Polls
+    if user.pollsCreated.length === 0
+      h3 No polls here, why not try your hand at making one?
+    else
+      each poll in user.pollsCreated
+          .pollContainer
+            .pollContents
+              p.title #[=poll.name]
+              p.description= poll.description
+            .btnContainer 
+              a(href="poll/" + poll.poll_id).btn View Poll
+              a( href="/poll/" + poll.poll_id + "/delete").btn.danger delete
+    h2 Create a new poll
+    #newPoll
+      form( action="/poll/new" method="post")
+        .formContents
+          div.pollName
+            label Poll name:
+            input( id="pollName" type="text" name="pollName")
+            .error
+          div.pollDescription
+            label Description:
+            textarea( id="description" type="text" name="description")
+            .error
+          div.options
+            div#options-container
+            .error
+        .btnContainer
+          button( type="button" id="add-option").btn.default Add Option
+          input( id="createPoll" type="submit" value="Submit" onClick="return checkForm()").btn.attention
+      
+block script
+  script( src="/controllers/userController.client.js" type="text/javascript")

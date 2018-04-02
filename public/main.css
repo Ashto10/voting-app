@@ -1,0 +1,395 @@
+/*
+//  Constants
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Righteous');
+
+a {
+  text-decoration: none;
+}
+
+.menuOption {
+  display: block;
+  padding: 10px 20px;
+  color: #F4F2F4;
+  position: relative;
+  z-index: 100;
+  text-align: center;
+  background: #889D91;
+  width: 70px;
+  height: 20px;
+  border-bottom: 1px solid #423D3E;
+}
+
+.menuOption:last-child {
+  border-bottom: none;
+}
+
+.btn {
+  display: inline-block;
+  text-transform: uppercase;
+  background: #889d91;
+  border-radius: 8px;
+  color: #f4f2f4;
+  border-bottom: 1px solid #6b8275;
+  padding: 7px 15px;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.btn-lg {
+  font-size: 20px;
+  padding: 15px 20px;
+}
+
+.btn-sm {
+  padding: 3px 5px;
+  border-radius: 0px;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  filter: brightness(1.3);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #f4f2f4;
+}
+
+/*
+//  Navigation
+*/
+
+.header {
+  position: relative;
+  height: 48px;
+  background: #889d91;
+  border-bottom: 2px solid #6b8275;
+}
+
+.brand {
+  position: relative;
+  float: left;
+  margin-left: 30px;
+  cursor: default;
+}
+
+.siteLogo {
+  position: relative;
+  top: 4px;
+  height: 40px;
+  width: auto;
+}
+
+.siteTitle {
+  position: relative;
+  top: -4px;
+  color: white;
+  margin-left: 10px;
+  font-size: 38px;
+  font-family: 'Righteous', cursive;
+}
+
+.profileContainer {
+  position: absolute;
+  right: 0;
+  float: right;
+  text-align: right;
+}
+
+.profileContainer .twitterIcon {
+  height: 48px;
+  width: auto;
+  margin-bottom: -1px;
+}
+
+.profileContainer .twitterLogin {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.profileContainer .menuOption {
+  display: none;
+}
+
+.profileContainer:hover .menuOption, .profileContainer:focus .menuOption {
+  display: block;
+}
+
+.menuOption:hover {
+  filter: brightness(1.2);
+}
+
+/*
+//  Index
+*/
+
+.splashImage {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  margin: -1px 0;
+}
+
+.splashImage::after {
+  content: "";
+  position: absolute;
+  background: url('https://cdn.glitch.com/854bed4f-5ebe-43f7-a85e-3e9f30063361%2Fmen_employees_suit_work_greeting_business_office_chef-1282006.jpg?1522600088628');
+  background-position: 50% 11%;
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  box-shadow: inset 0 0 60px 10px black;
+  filter: blur(1px) opacity(0.7) brightness(0.8);
+}
+
+.splashImage .splashText {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 25%;
+  font-size: 2em;
+  color: #111;
+}
+
+.splashText p {
+  width: 70%;
+  margin: 0 auto 1em;
+}
+
+.guestInformation, .resultsArea {
+  padding: 3rem 0;
+  background: #423d3e;
+  color: #f4f2f4;
+}
+
+.guestInformation h2, .resultsArea h2 {
+  color: #B28647;
+}
+
+.guestInformation span {
+  color: #B28647;
+  padding-right: 0.5em;
+}
+
+.guestInformation p {
+  margin-left: 4.4em;
+  margin-bottom: 3em;
+}
+
+.latestPolls {
+  margin: 3em 0 4em;
+}
+
+.pollContainer {
+  display: inline-block;
+  width: 31.33%;
+  background: #7B5F57;
+  margin: 0 1% 1.5em;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pollContents {
+  position: relative;
+  margin: 2em 1.751em 1em;
+  color: #f4f2f4;
+  height: 290px;
+  text-align: left;
+}
+
+.pollContents p {
+  padding-bottom: 0.2em;
+  overflow: hidden;  
+}
+
+.pollContents .title {
+  font-size: 2em;
+  margin-bottom: 0;
+  max-height: 2.2em;
+}
+
+.pollContents .author {
+  margin-top: 5px;
+  max-height: 1.1em;
+}
+
+.pollContents .description {
+  max-height: 10em;
+  color: #111;
+}
+
+.pollContainer .btn {
+  margin-bottom: 1em;
+}
+
+.newPoll {
+  margin-top: 2em;
+  text-align: center;
+}
+
+/*
+//  Profile
+*/
+
+.btnContainer {
+  display: inline;
+}
+
+.btnContainer .btn {
+  margin-right: 10px;
+}
+
+.btnContainer .btn:last-child {
+  margin-right: 0;
+}
+
+#newPoll form {
+  background: #889D91;
+  width: 650px;
+  padding: 20px 0;
+  border-radius: 10px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.formContents {
+  display: block;
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.formContents label {
+  display: inline-block;
+  width: 120px;
+  color: #F4F2F4;
+}
+
+.formContents input,
+.formContents textarea {
+  margin-left: 20px;
+  width: 300px;
+}
+
+.formContents textarea {
+  vertical-align: top;
+  resize: none;
+  height: 6em;
+}
+
+.formContents .btn {
+  margin: 0;
+}
+
+/*
+//  Poll
+*/
+
+#poll {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.optionsContainer {
+  display: inline-block;
+  width: 40%;
+  height: 30px;
+  text-align: left;
+  margin-left: 3em;
+}
+
+.option {
+  height: 1.5em;
+  margin: 10px;
+}
+
+.optionColor {
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.optionLabel {
+  vertical-align: top;
+}
+
+.optionsContainer .btn {
+  margin-left: 10px;
+  min-width: 40px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.twitter-share-button {
+  margin-top: 30px;
+}
+
+.svg-container, .svg-warning {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+  padding-bottom: 500px; /* aspect ratio */
+  vertical-align: top;
+  overflow: hidden;
+}
+
+.svg-warning {
+  text-align: center;
+  padding-bottom: 0;
+}
+
+.svg-content-responsive {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+/*
+//  Constants overwrites
+*/
+
+.default {
+  background: #F4F2F4;
+  color: #423D3E;
+}
+
+.attention {
+  background: #B28647;
+}
+
+.danger {
+  background: #ce3939;
+  color: #423d3e;
+}
+
+.error {
+  min-height: 10px;
+  margin: 0.3em 0;
+  color: red;
+}
+
+.disabled {
+  opacity: 0.4;
+}
